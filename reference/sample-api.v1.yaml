@@ -15,7 +15,32 @@ paths:
     get:
       summary: ユーザー情報取得
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  userId:
+                    type: integer
+                    format: int64
+                    example: '100'
+                    minimum: 0
+                  last_name:
+                    type: string
+                    example: 圭一
+                    minLength: 1
+                    maxLength: 50
+                  email:
+                    type: string
+                    format: email
+                    example: keiichi-honma@two2.jp
+                    minLength: 1
+                    maxLength: 255
+                required:
+                  - userId
       operationId: get-user-userId
       parameters:
         - schema:
@@ -42,5 +67,12 @@ paths:
       tags: []
       responses: {}
       operationId: delete-user-userId
+      parameters:
+        - schema:
+            type: integer
+          in: query
+          name: userId
+          description: 削除したいユーザーのID
+          required: true
 components:
   schemas: {}
