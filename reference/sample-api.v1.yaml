@@ -29,6 +29,14 @@ paths:
       tags: []
       responses: {}
       operationId: patch-user-userId
+      parameters:
+        - schema:
+            type: integer
+          in: query
+          name: userId
+          required: true
+          description: 更新したいユーザーのID
+      description: ''
     delete:
       summary: ユーザー情報削除
       tags: []
