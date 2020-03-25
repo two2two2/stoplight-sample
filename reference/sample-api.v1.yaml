@@ -1,0 +1,38 @@
+openapi: 3.0.0
+info:
+  title: sample-api
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  '/user/{userId}':
+    parameters:
+      - schema:
+          type: string
+        name: userId
+        in: path
+        required: true
+    get:
+      summary: ユーザー情報取得
+      tags: []
+      responses: {}
+      operationId: get-user-userId
+      parameters:
+        - schema:
+            type: integer
+          in: query
+          name: userId
+          description: 取得したいユーザーのID
+          required: true
+    patch:
+      summary: ユーザー情報更新
+      tags: []
+      responses: {}
+      operationId: patch-user-userId
+    delete:
+      summary: ユーザー情報削除
+      tags: []
+      responses: {}
+      operationId: delete-user-userId
+components:
+  schemas: {}
